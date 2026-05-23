@@ -3,7 +3,6 @@ package com.example.sharemenu
   import android.content.ComponentName
   import android.content.Intent
   import android.os.Bundle
-  import android.view.WindowManager
   import androidx.activity.ComponentActivity
   import androidx.activity.compose.setContent
   import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,10 +21,6 @@ package com.example.sharemenu
 
       override fun onCreate(savedInstanceState: Bundle?) {
           super.onCreate(savedInstanceState)
-
-          // Make the window dim the background like a dialog
-          window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-          window.setDimAmount(0.6f)
 
           val incomingIntent = intent
 
@@ -47,9 +42,7 @@ package com.example.sharemenu
                           sheetState = sheetState,
                           onDismiss = { finish() },
                           onAppSelected = { app ->
-                              scope.launch {
-                                  sheetState.hide()
-                              }.invokeOnCompletion {
+                              scope.launch { sheetState.hide() }.invokeOnCompletion {
                                   forwardIntent(incomingIntent, app)
                               }
                           },

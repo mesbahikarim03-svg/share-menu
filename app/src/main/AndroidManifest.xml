@@ -2,6 +2,7 @@
   <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:tools="http://schemas.android.com/tools">
 
+      <!--  Required to enumerate every installed app that can handle a share  -->
       <uses-permission
           android:name="android.permission.QUERY_ALL_PACKAGES"
           tools:ignore="QueryAllPackagesPermission" />
@@ -14,23 +15,31 @@
           android:supportsRtl="true"
           android:theme="@style/Theme.ShareMenu">
 
+          <!--
+              The activity itself is fully transparent so only the
+              BottomSheet is visible on screen.
+          -->
           <activity
               android:name=".MainActivity"
               android:exported="true"
-              android:label="@string/app_name">
+              android:label="@string/app_name"
+              android:theme="@style/Theme.ShareMenu.Transparent">
 
+              <!-- plain text / URLs -->
               <intent-filter android:label="@string/app_name">
                   <action android:name="android.intent.action.SEND" />
                   <category android:name="android.intent.category.DEFAULT" />
                   <data android:mimeType="text/plain" />
               </intent-filter>
 
+              <!-- single file (image, video, doc …) -->
               <intent-filter android:label="@string/app_name">
                   <action android:name="android.intent.action.SEND" />
                   <category android:name="android.intent.category.DEFAULT" />
                   <data android:mimeType="*/*" />
               </intent-filter>
 
+              <!-- multiple files -->
               <intent-filter android:label="@string/app_name">
                   <action android:name="android.intent.action.SEND_MULTIPLE" />
                   <category android:name="android.intent.category.DEFAULT" />
@@ -39,5 +48,5 @@
 
           </activity>
       </application>
-
   </manifest>
+  

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+      <!-- Header -->
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingStart="20dp"
+          android:paddingTop="20dp"
+          android:paddingEnd="20dp"
+          android:paddingBottom="8dp"
+          android:text="@string/share_via"
+          android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+      <!-- App grid -->
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/apps_recycler_view"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingStart="8dp"
+          android:paddingEnd="8dp"
+          android:paddingBottom="8dp"
+          android:clipToPadding="false" />
+
+      <!-- Empty state -->
+      <TextView
+          android:id="@+id/empty_label"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:padding="32dp"
+          android:text="@string/no_apps"
+          android:textAppearance="?attr/textAppearanceBodyMedium"
+          android:visibility="gone" />
+
+      <!-- Bottom safe-area spacer -->
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="16dp" />
+
+  </LinearLayout>
+  

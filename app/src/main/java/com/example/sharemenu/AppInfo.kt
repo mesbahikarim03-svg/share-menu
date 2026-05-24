@@ -1,10 +1,13 @@
 package com.example.sharemenu
 
-import android.graphics.drawable.Drawable
+  import android.graphics.drawable.Drawable
 
-data class AppInfo(
-    val label: String,
-    val packageName: String,
-    val activityName: String,
-    val icon: Drawable,
-)
+  data class AppInfo(
+      val label: String,
+      val packageName: String,
+      val activityName: String,
+      val icon: Drawable,
+      var isPinned: Boolean = false,
+      var isHidden: Boolean = false,
+  )
+  
